@@ -15,25 +15,33 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	
 	-- Telescope: fuzzyfinder
-	{'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	-- or                              , branch = '0.1.1',
-	dependencies = { 'nvim-lua/plenary.nvim' }},
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        -- or                              , branch = '0.1.1',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 	
 	-- Color Scheme
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{
+        "catppuccin/nvim", name = "catppuccin" 
+    },
 
-	{'nvim-treesitter/nvim-treesitter', 
-	dependencies = {
-		'nvim-treesitter/nvim-treesitter-textobjects',
-	},
-	config = function()
-		pcall(require('nvim-treesitter.install').update { with_sync = true })
-	end},
+    -- Treesitter
+    {
+        'nvim-treesitter/nvim-treesitter', 
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
+        config = function()
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
+        end
+    },
 
-
+    -- Git
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
 
+    -- LSP Zero
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',
@@ -57,6 +65,7 @@ require("lazy").setup({
 		}
 	},
 
+    -- Lualine
     {
         'nvim-lualine/lualine.nvim',
         opts = {
@@ -68,6 +77,20 @@ require("lazy").setup({
             }
         }
     },
+
+    {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    },
+
+    {
+        'windwp/nvim-ts-autotag'
+    },
+
+    {
+        'akinsho/bufferline.nvim', tag = "v3.*", 
+        dependencies = {'nvim-tree/nvim-web-devicons'}
+    }
 
 }, {})
 
