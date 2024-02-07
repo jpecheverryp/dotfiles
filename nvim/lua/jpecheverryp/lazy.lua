@@ -13,22 +13,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	
 	-- Telescope: fuzzyfinder
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                              , branch = '0.1.1',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-	
 	-- Color Scheme
 	{
-        "catppuccin/nvim", name = "catppuccin" 
+        "catppuccin/nvim", name = "catppuccin"
     },
-
     -- Treesitter
     {
-        'nvim-treesitter/nvim-treesitter', 
+        'nvim-treesitter/nvim-treesitter',
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
